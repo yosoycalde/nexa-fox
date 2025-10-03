@@ -38,7 +38,6 @@ $totalPages = ceil($totalRecords / $perPage);
     </div>
 
     <div class="container">
-        <!-- Estadísticas -->
         <div class="row mb-4">
             <?php
             $stats = $conn->query("SELECT 
