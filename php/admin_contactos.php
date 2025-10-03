@@ -1,17 +1,9 @@
 <?php
-// admin_contactos.php - Panel de administración de contactos
 session_start();
 require_once 'config.php';
 
-// Verificar autenticación (implementar según tu sistema de login)
-// if (!isset($_SESSION['usuario_admin'])) {
-//     header('Location: login.php');
-//     exit;
-// }
-
 $conn = getConnection();
 
-// Obtener contactos con paginación
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $perPage = 20;
 $offset = ($page - 1) * $perPage;
@@ -22,7 +14,6 @@ $stmt->bind_param("ii", $perPage, $offset);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Contar total de registros
 $sqlCount = "SELECT COUNT(*) as total FROM contactos";
 $resultCount = $conn->query($sqlCount);
 $totalRecords = $resultCount->fetch_assoc()['total'];
@@ -102,7 +93,6 @@ $totalPages = ceil($totalRecords / $perPage);
             </div>
         </div>
 
-        <!-- Tabla de contactos -->
         <div class="card">
             <div class="card-header">
                 <h5>Listado de Contactos</h5>
@@ -164,7 +154,6 @@ $totalPages = ceil($totalRecords / $perPage);
                     </table>
                 </div>
 
-                <!-- Paginación -->
                 <?php if ($totalPages > 1): ?>
                 <nav>
                     <ul class="pagination justify-content-center">
@@ -180,7 +169,6 @@ $totalPages = ceil($totalRecords / $perPage);
         </div>
     </div>
 
-    <!-- Modal para ver detalle -->
     <div class="modal fade" id="detalleModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -189,7 +177,6 @@ $totalPages = ceil($totalRecords / $perPage);
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="detalleContent">
-                    <!-- Contenido dinámico -->
                 </div>
             </div>
         </div>

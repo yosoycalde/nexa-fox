@@ -1,12 +1,9 @@
 <?php
-// procesar_contacto.php - Procesa el formulario de contacto
 
 require_once 'config.php';
 
-// Configurar headers para JSON
 header('Content-Type: application/json');
 
-// Verificar que sea una petición POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode([
         'success' => false,
@@ -15,14 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Obtener y limpiar datos del formulario
 $nombre = filter_input(INPUT_POST, 'nombre', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 $telefono = filter_input(INPUT_POST, 'telefono', FILTER_SANITIZE_STRING);
 $servicio = filter_input(INPUT_POST, 'servicio', FILTER_SANITIZE_STRING);
 $mensaje = filter_input(INPUT_POST, 'mensaje', FILTER_SANITIZE_STRING);
 
-// Validar datos requeridos
 if (empty($nombre) || empty($email) || empty($servicio) || empty($mensaje)) {
     echo json_encode([
         'success' => false,
@@ -31,7 +26,6 @@ if (empty($nombre) || empty($email) || empty($servicio) || empty($mensaje)) {
     exit;
 }
 
-// Validar formato de email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo json_encode([
         'success' => false,
@@ -40,7 +34,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// Obtener conexión
 $conn = getConnection();
 
 if (!$conn) {
@@ -51,7 +44,6 @@ if (!$conn) {
     exit;
 }
 
-// Preparar consulta SQL
 $sql = "INSERT INTO contactos (nombre, email, telefono, servicio, mensaje, fecha_registro, ip_address) 
         VALUES (?, ?, ?, ?, ?, NOW(), ?)";
 
@@ -66,15 +58,11 @@ if (!$stmt) {
     exit;
 }
 
-// Obtener IP del usuario
 $ip_address = $_SERVER['REMOTE_ADDR'];
 
-// Bind parameters
 $stmt->bind_param("ssssss", $nombre, $email, $telefono, $servicio, $mensaje, $ip_address);
 
-// Ejecutar consulta
 if ($stmt->execute()) {
-    // Enviar email de notificación (opcional)
     $to = "tu_email@nexafox.com";
     $subject = "Nuevo contacto desde Nexa-Fox: $nombre";
     $body = "Nombre: $nombre\n";
@@ -87,8 +75,6 @@ if ($stmt->execute()) {
     $headers = "From: noreply@nexafox.com\r\n";
     $headers .= "Reply-To: $email\r\n";
     
-    // Descomentar para enviar email real
-    // mail($to, $subject, $body, $headers);
     
     echo json_encode([
         'success' => true,

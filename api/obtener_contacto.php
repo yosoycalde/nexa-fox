@@ -1,5 +1,4 @@
 <?php
-// api/obtener_contacto.php - API para obtener detalles de un contacto
 require_once '../config.php';
 
 header('Content-Type: application/json');
