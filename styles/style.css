@@ -5,3 +5,11 @@ header {
 .cabeza-titulo{
     color: azure;
 }
+
+ul.navega li{
+    display: inline;
+    position: relative;
+    left: 50%;
+    text-align: start;
+    top: -40px;
+}
