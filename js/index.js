@@ -8,7 +8,7 @@ window.addEventListener('scroll', function () {
     }
 });
 
-// Scroll animation for cards
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -26,7 +26,6 @@ document.querySelectorAll('.card-custom').forEach(card => {
     observer.observe(card);
 });
 
-// Particles animation
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -71,14 +70,12 @@ window.addEventListener('resize', function () {
     canvas.height = document.querySelector('.hero-section').offsetHeight;
 });
 
-// Form submission
 document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     alert('¡Gracias por contactarnos! Nos pondremos en contacto contigo pronto.');
     this.reset();
 });
 
-// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
