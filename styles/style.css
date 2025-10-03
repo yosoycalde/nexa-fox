@@ -134,7 +134,7 @@ body {
 .btn-custom:hover {
     background: var(--accent-color);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 10px 20px rgba(255, 128, 82, 0.3);
 }
 
 .cards-section {
