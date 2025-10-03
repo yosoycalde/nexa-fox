@@ -1,5 +1,6 @@
 header {
     background-color: black;
+
 }
 
 .cabeza-titulo{
@@ -9,7 +10,10 @@ header {
 ul.navega li{
     display: inline;
     position: relative;
-    left: 50%;
+    left: 68%;
     text-align: start;
     top: -40px;
+}
+li {
+    margin: 8px;
 }
