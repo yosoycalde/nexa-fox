@@ -27,33 +27,7 @@ $totalPages = ceil($totalRecords / $perPage);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Nexa-Fox</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .admin-header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #004e89 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-        .stat-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-        .badge-atendido {
-            background-color: #28a745;
-        }
-        .badge-pendiente {
-            background-color: #ffc107;
-        }
-        .table-hover tbody tr:hover {
-            background-color: #f1f3f5;
-        }
-    </style>
+    <link rel="stylesheet" href="style/style-admin.css">
 </head>
 <body>
     <div class="admin-header">
