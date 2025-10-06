@@ -83,7 +83,7 @@ body {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
     color: white;
     padding: 150px 0 100px;
-    margin-top: 70px;
+    padding-top: 100px;
     position: relative;
     overflow: hidden;
 }
