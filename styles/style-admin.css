@@ -18,13 +18,13 @@
         }
 
         .badge-atendido {
-            background-color: #28a745;
+            background-color: #00a526;
         }
 
         .badge-pendiente {
-            background-color: #ffc107;
+            background-color: #ffbf00;
         }
 
         .table-hover tbody tr:hover {
-            background-color: #f1f3f5;
+            background-color: #ffffff;
         }
