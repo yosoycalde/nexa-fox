@@ -99,7 +99,6 @@ $totalPages = ceil($totalRecords / $perPage);
             </div>
         </div>
 
-        <!-- Tabla de contactos -->
         <div class="card">
             <div class="card-header">
                 <h5>Listado de Contactos</h5>
@@ -161,7 +160,6 @@ $totalPages = ceil($totalRecords / $perPage);
                     </table>
                 </div>
 
-                <!-- Paginación -->
                 <?php if ($totalPages > 1): ?>
                 <nav>
                     <ul class="pagination justify-content-center">
@@ -177,7 +175,6 @@ $totalPages = ceil($totalRecords / $perPage);
         </div>
     </div>
 
-    <!-- Modal para ver detalle -->
     <div class="modal fade" id="detalleModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -186,7 +183,6 @@ $totalPages = ceil($totalRecords / $perPage);
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="detalleContent">
-                    <!-- Contenido dinámico -->
                 </div>
             </div>
         </div>
