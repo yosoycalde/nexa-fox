@@ -1,9 +1,7 @@
 <?php
-// login.php - Sistema de autenticación para administradores
 session_start();
 require_once 'config.php';
 
-// Si ya está logueado, redirigir al panel
 if (isset($_SESSION['usuario_admin'])) {
     header('Location: admin_contactos.php');
     exit;
