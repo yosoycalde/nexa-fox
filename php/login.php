@@ -26,9 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($result->num_rows === 1) {
                 $usuario = $result->fetch_assoc();
                 
-                // Verificar contraseña
                 if (password_verify($password, $usuario['password_hash'])) {
-                    // Login exitoso
                     $_SESSION['usuario_admin'] = [
                         'id' => $usuario['id'],
                         'nombre' => $usuario['nombre'],
@@ -36,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         'rol' => $usuario['rol']
                     ];
                     
-                    // Actualizar último acceso
                     $updateSql = "UPDATE usuarios_admin SET ultimo_acceso = NOW() WHERE id = ?";
                     $updateStmt = $conn->prepare($updateSql);
                     $updateStmt->bind_param("i", $usuario['id']);
